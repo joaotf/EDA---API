@@ -1,10 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors')
 const requireDir = require('require-dir')
 const porta = 8080;
 
 const app = express();
 app.use(express.json())
+app.use(cors())
 
 requireDir('./models')
 requireDir('./database')

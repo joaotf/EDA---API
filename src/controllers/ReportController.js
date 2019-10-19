@@ -15,15 +15,15 @@ module.exports = {
         return res.json(reports)
     },
     async update(req,res){
-        const reports = Report.findByIdAndUpdate(req.params.id,req.body,{ new:true })
+        const reports = await Report.findByIdAndUpdate(req.params.id,req.body,{ new:true })
         
         return res.json(reports)
     },
 
     async destroy(req,res){
-        const reports = Report.findByIdAndRemove(req.params.id)
+        const reports = await Report.findByIdAndRemove(req.params.id)
 
-        res.json("Relatório removido com sucesso!")
+        return res.send()
     },
 
     async store(req,res){
