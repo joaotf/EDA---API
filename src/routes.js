@@ -9,10 +9,12 @@ const ProjectController = require('./controllers/ProjectController.js')
 
 //Autenticação
 routes.post('/register',AuthController.register)
-routes.get('/register',AuthController.users)
 routes.post('/authenticate',AuthController.auth)
 
 routes.use(auth)
+routes.get('/users',AuthController.users)
+
+
 //Funções
 routes.get("/reports",ReportController.index);
 routes.get("/reports/:id",ReportController.show)
