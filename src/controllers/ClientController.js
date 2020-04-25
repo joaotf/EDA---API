@@ -9,11 +9,13 @@ module.exports = {
         return res.json(clients)
     },
     async find_ONE(req,res){
-        const clients = await Client.findById(req.params.id)
-        if(clients === null)
+        try {
+            const clients = await Client.findById(req.params.id)
+            return res.status(200).json(clients)            
+        }catch{
             return res.status(400).send({error:"Usuário não encontrado!"})
-            
-        return res.status(200).json(clients)        
+        }
+        
     },
 
     async register(req,res){

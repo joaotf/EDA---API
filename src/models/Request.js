@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const ClientSchema = new mongoose.Schema({
+const RequestSchema = mongoose.Schema({
     nome:{
         type:String,
         unique:true,
@@ -22,10 +22,14 @@ const ClientSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    payment:{
+        type:String,
+        required: true
+    },
     createdAt:{
         type:Date,
         default:Date.now
     }
 })
 
-mongoose.model('Client', ClientSchema)
+mongoose.model("Request",RequestSchema)
