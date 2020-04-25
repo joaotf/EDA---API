@@ -5,7 +5,7 @@ const cors = require('cors');
 const bodyparser = require('body-parser');
 const requireDir = require('require-dir');
 
-const porta = 8080;
+const porta = process.env.PORT || 8080;
 
 const app = express();
 app.use(express.json());
