@@ -19,9 +19,9 @@ module.exports = {
     },
 
     async register(req,res){
-        const { nome } = req.body;
+        const { email } = req.body;
         try{
-            if(await Client.findOne({ nome })){
+            if(await Client.findOne({ email })){
                 return res.status(400).send("Cliente está cadastrado!")            
             }else{
                 const client = await Client.create(req.body)

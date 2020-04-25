@@ -8,7 +8,7 @@ const authConfig = require('../config/admin.json');
 const Admin = mongoose.model('Admin');
 
 function generateToken(params = {}) {
-  return jwt.sign(params, authConfig.secret_admin, {
+  return jwt.sign(params, authConfig.secret, {
     expiresIn: 86400,
   });
 }
@@ -29,7 +29,7 @@ module.exports = {
         admin,
         token: generateToken({ id: admin.id }),
       });
-    } catch (Error) {
+    } catch (err) {
       return res.status(400).json({ error: 'Registration failed' });
     }
   },

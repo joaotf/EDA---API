@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 const express = require('express');
+const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyparser = require('body-parser');
 const requireDir = require('require-dir');
@@ -19,6 +20,7 @@ app.use('/api', require('./routes.js'));
 
 try {
   app.listen(porta);
-} catch (Error) {
-  console.log(Error);
+} catch (err) {
+  console.log(err);
 }
+ 

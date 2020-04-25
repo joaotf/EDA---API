@@ -12,6 +12,7 @@ const ClientController = require('./controllers/ClientController.js');
 // Autenticação
 routes.post('/register', AuthController.register);
 routes.post('/authenticate', AuthController.auth);
+
 routes.post('/auth_admin', AdminController.auth);
 
 routes.use(auth);
@@ -26,14 +27,14 @@ routes.use(admin);
 
 routes.get('/users', AuthController.users);
 
-routes.post('/register/admin', AdminController.register);
 routes.get('/admins', AdminController.admins);
+routes.post('/register/admin', AdminController.register);
 
 routes.get('/requests', RequestController.find_all);
 
 routes.get('/clients', ClientController.find_ALL);
 routes.get('/show_client/:id', ClientController.find_ONE);
-routes.post('/add_client', ClientController.register);
+
 routes.put('/update_client/:id', ClientController.update);
 routes.delete('/destroy_client/:id', ClientController.destroy);
 
